@@ -15,6 +15,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DatatableComponent } from './components/datatable/datatable.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
