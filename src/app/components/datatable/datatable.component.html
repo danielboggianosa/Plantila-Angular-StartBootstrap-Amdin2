@@ -5,30 +5,33 @@
 <div class="card shadow mb-4">
 
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">{{tableTitle}}
+            <button class="btn btn-primary mx-2 float-right"><i class="fa fa-plus"></i><span class="d-none d-md-inline"> Agregar Usuario</span></button>
+        </h6>
     </div>
 
     <div class="card-body">
 
         <div class="card-title">
-            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+            <!-- SEARCH BUTTON -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="loadData()">
                 <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Filter..." aria-label="Search" aria-describedby="basic-addon2" name="filterValue" [(ngModel)]="filterValue">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" (click)="loadData()">
+                    <button class="btn btn-primary" type="submit" (click)="loadData()">
                     <i class="fas fa-search fa-sm"></i>
                     </button>
                 </div>
                 </div>
             </form>            
-            <button class="btn btn-primary mx-2"><i class="fa fa-plus"></i> Agregar Usuario</button>
+            
         </div>
 
         <div class="d-none d-sm-block">
             <table mat-table [dataSource]="dataSource" matSort class="w-100 table" (matSortChange)="sortData($event)">
                 <div *ngFor="let col of tableColumns">
                     <ng-container matColumnDef="{{col.id}}">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text text-primary p-2"> {{col.title}} </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text text-primary p-2"><h6>{{col.title}}</h6></th>
                         <td mat-cell *matCellDef="let element" class="p-2">
                             <span *ngIf="col.key!='options'">{{ element[col.key] }}</span>
                             <span *ngIf="col.key=='options'">
