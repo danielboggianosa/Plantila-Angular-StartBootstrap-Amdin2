@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class LayoutComponent implements OnInit {
+  @ViewChild('sidebar') sidebar;
 
-  constructor() { }
+  constructor(){ }
 
   ngOnInit(): void {
+  }
+
+  toggleSideBar(){
+    this.sidebar.toggle()
   }
 
 }

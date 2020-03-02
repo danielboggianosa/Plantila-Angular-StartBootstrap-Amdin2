@@ -14,9 +14,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import { DatatableComponent } from './components/datatable/datatable.component';
+import { DataTableComponent } from './components/datatable/datatable.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './components/common/logout/logout.component';
+import { SearchComponent } from './components/common/search/search.component';
+import { AlertsComponent } from './components/common/alerts/alerts.component';
+import { MessageComponent } from './components/common/message/message.component';
+import { UserInfoComponent } from './components/common/user-info/user-info.component';
+import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -32,13 +38,19 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     ConfigurationComponent,
     CalendarComponent,
-    DatatableComponent
+    DataTableComponent,
+    LogoutComponent,
+    SearchComponent,
+    AlertsComponent,
+    MessageComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CdkTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
