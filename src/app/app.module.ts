@@ -26,6 +26,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { TimeAgoPipe } from 'time-ago-pipe';
     AlertsComponent,
     MessageComponent,
     UserInfoComponent,
+    PaginatorComponent,
     // TimeAgoPipe
   ],
   imports: [

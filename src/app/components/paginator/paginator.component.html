@@ -1,0 +1,15 @@
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right">
+    <div class="input-group">
+        <label for="pageSize" class="form-control bg-light border-0">Show </label>
+        <select name="pageSize" id="pageSize" class="form-control bg-light border-0 small" [(ngModel)]="pageSize" (change)="changeSize();currentPage=1">
+            <option *ngFor="let size of pageSizeOptions" value="{{size}}">{{size}}</option>
+        </select>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination" style="cursor: pointer;">
+                <li class="page-item"><a class="page-link" (click)="paginationPrev()">Previous</a></li>
+                <li class="page-item btn btn-circle" *ngFor="let page of pages" [ngClass]="(currentPage == page) ? 'active' : ''"><a class="page-link" (click)="pagination(page)">{{page}}</a></li>
+                <li class="page-item"><a class="page-link" (click)="paginationNext()">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</form>
