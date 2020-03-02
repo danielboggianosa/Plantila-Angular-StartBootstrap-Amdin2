@@ -23,6 +23,9 @@ import { AlertsComponent } from './components/common/alerts/alerts.component';
 import { MessageComponent } from './components/common/message/message.component';
 import { UserInfoComponent } from './components/common/user-info/user-info.component';
 import { CdkTableModule } from '@angular/cdk/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 @NgModule({
   declarations: [
@@ -43,14 +46,16 @@ import { CdkTableModule } from '@angular/cdk/table';
     SearchComponent,
     AlertsComponent,
     MessageComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    // TimeAgoPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CdkTableModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ export class UserService {
   api_url
 
   constructor(private api:ServerService, private http:HttpClient) {
-    this.api_url = api.API_URI+'user';
+    this.api_url = api.API_URI+'users';
   }
 
   registraUsuario(usuario){
@@ -19,6 +19,22 @@ export class UserService {
 
   login(usuario){
     return this.http.post(this.api_url+"/authenticate", usuario);
+  }
+
+  getUsers(page,size){
+    let body={
+      page: page,
+      size: size
+    }
+    return this.http.post(this.api_url+'/paged',body)
+  }
+
+  getFiltered(body){
+    return this.http.post(this.api_url+'/filtered',body)
+  }
+
+  deleteUser(id){
+    return this.http.delete(this.api_url+'/'+id);
   }
 
 }

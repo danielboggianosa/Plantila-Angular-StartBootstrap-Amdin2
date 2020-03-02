@@ -26,9 +26,9 @@ export class SidebarComponent implements OnInit {
     ]},
     {id: 3, title: 'Addons', permission:'', menu:[
       {id:9, title: 'Pages', icon:'fas fa-fw fa-folder', link: '', permission:'', subtitle: 'Custom Components', submenu:[
-        {id:10, title:'Login', link:'login', permission:'' },
-        {id:11, title:'Register', link:'register', permission:'' },
-        {id:12, title:'Forgot Password', link:'recover', permission:'' },
+        {id:10, title:'Login', link:'/login', permission:'' },
+        {id:11, title:'Register', link:'/register', permission:'' },
+        {id:12, title:'Forgot Password', link:'/recover', permission:'' },
         {id:13, title:'404 Page', link:'unknown', permission:'' },
         {id:14, title:'Blank Page', link:'blank', permission:'' },
       ]},
