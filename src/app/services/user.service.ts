@@ -21,11 +21,7 @@ export class UserService {
     return this.http.post(this.api_url+"/authenticate", usuario);
   }
 
-  getUsers(page,size){
-    let body={
-      page: page,
-      size: size
-    }
+  getUsers(body){
     return this.http.post(this.api_url+'/paged',body)
   }
 

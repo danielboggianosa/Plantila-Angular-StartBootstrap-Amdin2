@@ -20,23 +20,15 @@
                     </button>
                 </div>
                 </div>
-            </form>
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right">
-                <div class="input-group">
-                    <label for="pageSize" class="form-control bg-light border-0">Show </label>
-                    <select name="pageSize" id="pageSize" class="form-control bg-light border-0 small" [(ngModel)]="pageSize" (change)="loadData(0,pageSize);currentPage=1">
-                        <option *ngFor="let size of pageSizeOptions" value="{{size}}">{{size}}</option>
-                    </select>
-                </div>
-            </form>
+            </form>            
             <button class="btn btn-primary mx-2"><i class="fa fa-plus"></i> Agregar Usuario</button>
         </div>
 
         <div class="d-none d-sm-block">
-            <table mat-table [dataSource]="dataSource" matSort class="w-100 table">
+            <table mat-table [dataSource]="dataSource" matSort class="w-100 table" (matSortChange)="sortData($event)">
                 <div *ngFor="let col of tableColumns">
                     <ng-container matColumnDef="{{col.id}}">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="p-2"> {{col.title}} </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text text-primary p-2"> {{col.title}} </th>
                         <td mat-cell *matCellDef="let element" class="p-2">
                             <span *ngIf="col.key!='options'">{{ element[col.key] }}</span>
                             <span *ngIf="col.key=='options'">
@@ -53,21 +45,12 @@
     </div>
 
     <div class="card-footer">
-        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right">
-            <div class="input-group">
-                <label for="pageSize" class="form-control bg-light border-0">Show </label>
-                <select name="pageSize" id="pageSize" class="form-control bg-light border-0 small" [(ngModel)]="pageSize" (change)="loadData(0,pageSize);currentPage=1">
-                    <option *ngFor="let size of pageSizeOptions" value="{{size}}">{{size}}</option>
-                </select>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination" style="cursor: pointer;">
-                        <li class="page-item"><a class="page-link" (click)="paginationPrev()">Previous</a></li>
-                        <li class="page-item btn btn-circle" *ngFor="let page of pages" [ngClass]="(currentPage == page) ? 'active' : ''"><a class="page-link" (click)="pagination(page)">{{page}}</a></li>
-                        <li class="page-item"><a class="page-link" (click)="paginationNext()">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </form>
+        <app-paginator
+        [pageSize]="pageSize"
+        [totalRows]="totalRows"
+        [pageSizeOptions]="[10,20,50,100]"
+        (loadSize)="loadSize($event)"
+        ></app-paginator>
     </div>
 
 </div>
