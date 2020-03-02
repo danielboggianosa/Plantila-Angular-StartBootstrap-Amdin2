@@ -12,7 +12,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
   @Output() loadData = new EventEmitter<any>();
   @Output() loadSize = new EventEmitter<any>();
   lastPage: number;
-  currentPage: number;
+  currentPage: number = 1;
   pages: any[];
 
   constructor() { }
