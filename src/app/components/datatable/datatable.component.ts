@@ -42,12 +42,13 @@ export class DataTableComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  loadData(page=null, field=null, order=null){
+  loadData(page=null, value=null, field=null, order=null){
     let body={
       page:(page) ? +page : 0,
       size: +this.pageSize,
       field: (field) ? field : this.field,
-      order: (order) ? order : this.order
+      order: (order) ? order : this.order,
+      value: (value) ? value : this.filterValue,
     }
     this.subs.sink = this.userService.getUsers(body).subscribe(
       res=>{
@@ -60,20 +61,6 @@ export class DataTableComponent implements OnInit, OnDestroy {
   loadSize(e){
     this.pageSize = e;
     this.loadData();
-  }
-
-  applyFilter() {
-    let body = {
-      value: this.filterValue.trim().toLowerCase(),
-      page: 0,
-      size: +this.pageSize,
-    }
-    this.subs.sink = this.userService.getFiltered(body).subscribe(
-      res=>{
-        this.totalRows = (res['total']);
-        this.dataSource = new MatTableDataSource(res['data']);
-      }
-    );
   }
 
   delete(id){
@@ -96,7 +83,7 @@ export class DataTableComponent implements OnInit, OnDestroy {
     if(e.active != 6){
       this.field = this.tableColumns.filter(c=>c.id==e.active)[0].key
       this.order = e.direction;
-      this.loadData(0, this.field, this.order)
+      this.loadData(0, null, this.field, this.order)
     }
   }
 
