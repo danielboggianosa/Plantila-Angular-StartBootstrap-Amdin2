@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { SubSink } from 'subsink';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     email:null,
     password:null,
   }
+  @ViewChild('loginForm',{static:false}) loginForm;
 
   constructor(private userService:UserService, private router:Router) { }
 
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.router.navigateByUrl('/dashboard');
       }
     )
+    this.loginForm.nativeElement.reset();
   }
 
 }

@@ -15,7 +15,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { DataTableComponent } from './components/datatable/datatable.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './components/common/logout/logout.component';
 import { SearchComponent } from './components/common/search/search.component';
@@ -59,7 +59,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

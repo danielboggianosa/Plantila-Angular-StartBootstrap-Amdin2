@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class DataTableComponent implements OnInit, OnDestroy {
   subs = new SubSink
   dataSource;
-  tableTitle="Users";
+  cardTitle="Users";
 
   // ARMADO DINÁMICO DE LA TABLA
   // title: corresponde al título que tendrá cada columna
