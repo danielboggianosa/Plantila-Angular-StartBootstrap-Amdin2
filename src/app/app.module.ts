@@ -29,6 +29,7 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 import { FormsComponent } from './components/forms/forms.component';
 import { PaginatorComponent } from './components/datatable/paginator/paginator.component';
 import { FilterColumnsComponent } from './components/datatable/filter-columns/filter-columns.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { FilterColumnsComponent } from './components/datatable/filter-columns/fi
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
