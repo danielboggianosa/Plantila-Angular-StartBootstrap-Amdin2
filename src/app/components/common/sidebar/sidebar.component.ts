@@ -34,6 +34,7 @@ export class SidebarComponent implements OnInit {
       ]},
       {id:15, title: 'Charts', icon:'fas fa-fw fa-chart-area', link: 'charts', permission:'', subtitle: '', submenu:[]},
       {id:16, title: 'Tables', icon:'fas fa-fw fa-table', link: 'table', permission:'', subtitle: '', submenu:[]},
+      {id:17, title: 'Forms', icon:'fas fa-fw fa-table', link: 'forms', permission:'', subtitle: '', submenu:[]},
     ]},
   ]
   activeSubmenu: string;

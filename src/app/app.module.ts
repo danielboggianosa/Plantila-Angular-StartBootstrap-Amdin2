@@ -26,6 +26,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { FormsComponent } from './components/forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { TimeAgoPipe } from 'time-ago-pipe';
     AlertsComponent,
     MessageComponent,
     UserInfoComponent,
+    FormsComponent,
     // TimeAgoPipe
   ],
   imports: [

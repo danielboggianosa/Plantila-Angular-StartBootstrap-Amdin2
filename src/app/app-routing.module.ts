@@ -6,6 +6,7 @@ import { RecoverComponent } from './components/public/recover/recover.component'
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DataTableComponent } from './components/datatable/datatable.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'recover', component: RecoverComponent},
   {path:'dashboard', component: LayoutComponent, children:[
     {path:'profile', component: ProfileComponent},
-    {path:'table', component: DataTableComponent}
+    {path:'table', component: DataTableComponent},
+    {path:'forms', component: FormsComponent}
   ]},
 ];
 
