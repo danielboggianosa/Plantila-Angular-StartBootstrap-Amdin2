@@ -7,6 +7,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DataTableComponent } from './components/datatable/datatable.component';
 import { FormsComponent } from './components/forms/forms.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   children:[
     {path:'profile', component: ProfileComponent},
     {path:'table', component: DataTableComponent},
-    {path:'forms', component: FormsComponent}
+    {path:'forms', component: FormsComponent},
+    {path:'charts', component: ChartsComponent}
   ]},
 ];
 

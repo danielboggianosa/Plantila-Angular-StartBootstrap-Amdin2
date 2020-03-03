@@ -30,6 +30,7 @@ import { FormsComponent } from './components/forms/forms.component';
 import { PaginatorComponent } from './components/datatable/paginator/paginator.component';
 import { FilterColumnsComponent } from './components/datatable/filter-columns/filter-columns.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     UserInfoComponent,
     FormsComponent,
     PaginatorComponent,
-    FilterColumnsComponent
+    FilterColumnsComponent,
+    ChartsComponent,
     // TimeAgoPipe
   ],
   imports: [
