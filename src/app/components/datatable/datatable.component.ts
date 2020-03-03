@@ -13,6 +13,8 @@ export class DataTableComponent implements OnInit, OnDestroy {
   subs = new SubSink
   dataSource;
   cardTitle="Users";
+  pageTitle="Tables";
+  pageDescription="Para visualizar la data en esta tabla debes conectarte a un backend o a través de un servicio que traiga los datos. Revisa las instrucciones en los comentarios del código para mayor información";
 
   // ARMADO DINÁMICO DE LA TABLA
   // title: corresponde al título que tendrá cada columna
@@ -34,7 +36,7 @@ export class DataTableComponent implements OnInit, OnDestroy {
   field:string = 'id';
   order:string = 'asc';
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService){}
 
   ngOnInit(): void {
     // OBTENEMOS LA DATA DE ALGÚN SERVICIO Y LA ASIGANAMOS AL DATASOURCE

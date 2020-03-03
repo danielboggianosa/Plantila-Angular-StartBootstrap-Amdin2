@@ -6,6 +6,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styles: []
 })
 export class SidebarComponent implements OnInit {
+  webTitle='NG Admin';
+  webTitleSup="1"
   @ViewChild('accordionSidebar', {static:true}) accordionSidebar;
   // MENU EXAMPLE STRUCTURE DATA
   menuGroups=[
