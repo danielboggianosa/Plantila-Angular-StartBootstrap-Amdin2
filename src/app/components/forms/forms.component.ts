@@ -9,7 +9,8 @@ export class FormsComponent implements OnInit {
   pageTitle="Forms";
   pageDescription="DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the DataTables documentation";
   cardTitle="Forms Example";
-  
+
+  // INICIO DEL FORMULARIO
   // DECLARE EACH ONE OF THE INPUT FIELDS YOU WILL BE RECEIVING FROM THE FORM
   /*
   La propiedad "myForm" es tanto la declaración de todos los campos como de los valores que se recibirán del formulario.
@@ -79,6 +80,8 @@ export class FormsComponent implements OnInit {
   @ViewChild('Formulario',{static:false}) Formulario;
   error:Array<string>=[];
 
+  // fin de propiedades del formulario
+
   constructor() { 
     
   }
@@ -86,6 +89,7 @@ export class FormsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /* INICIO DE FUNCIONES DEL FORMULARIO */
   submitAction(){
     this.myForm;
 
@@ -113,19 +117,24 @@ export class FormsComponent implements OnInit {
         valid = false;
       }
       if(e.type == 'email'){
-        valid = this.ValidateEmail(myForm[e.name]);
+        valid = this.validateEmail(myForm[e.name]);
         if(!valid) this.error[e.id] = "Este no es un correo válido"
       }
     });
     return valid;
 
   }
-  
-  ValidateEmail(mail){
+  // Función para validar el formato del email
+  validateEmail(mail){
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
         return (true)
     }
     return (false)
   }
+  /**
+   * AQUIÍ SE PUEDEN AÑADIR MÁS FUNCIONES DE VALIDACIÓN
+   */
+
+  /* FIN DE FUNCIONES DEL FORMULARIO */
 
 }
