@@ -18,12 +18,14 @@ export class DataTableComponent implements OnInit, OnDestroy {
   // title: corresponde al título que tendrá cada columna
   // key: es el identificador de la tabla que contiene el valor (propiedad)
   tableColumns=[
-    {id:'1', key:'id', title:'ID'},
-    {id:'2', key:'nombre', title:'NOMBRE'},
-    {id:'3', key:'apellido', title:'APELLIDO'},
-    {id:'4', key:'correo', title:'CORREO'},
-    {id:'5', key:'createdAt', title:'CREADO'},
-    {id:'6', key:'options', title:'OPTIONS'},
+    {id:'1', key:'id',        title:'ID',       visible:true},
+    {id:'2', key:'nombre',    title:'NOMBRE',   visible:true},
+    {id:'3', key:'apellido',  title:'APELLIDO', visible:true},
+    {id:'4', key:'correo',    title:'CORREO',   visible:true},
+    {id:'5', key:'rol',       title:'ROL',      visible:false},
+    {id:'6', key:'imagen',    title:'IMAGEN',   visible:false},
+    {id:'7', key:'createdAt', title:'CREADO',   visible:true},
+    {id:'0', key:'options',   title:'OPTIONS',  visible:true},
   ];
   displayedColumns = this.tableColumns.map(c => c.id);
   pageSize:number=10;
@@ -55,6 +57,7 @@ export class DataTableComponent implements OnInit, OnDestroy {
       res=>{
         this.totalRows = (res['total']);
         this.dataSource = new MatTableDataSource(res['data']);
+        
       }
     )
   }
