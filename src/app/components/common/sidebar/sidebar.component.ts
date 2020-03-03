@@ -29,6 +29,7 @@ export class SidebarComponent implements OnInit {
         {id:10, title:'Login', link:'/login', permission:'' },
         {id:11, title:'Register', link:'/register', permission:'' },
         {id:12, title:'Forgot Password', link:'/recover', permission:'' },
+        {id:12, title:'Profile', link:'profile', permission:'' },
         {id:13, title:'404 Page', link:'unknown', permission:'' },
         {id:14, title:'Blank Page', link:'blank', permission:'' },
       ]},

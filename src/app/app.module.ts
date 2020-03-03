@@ -27,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { FormsComponent } from './components/forms/forms.component';
-import { PaginatorComponent } from './components/paginator/paginator.component';
+import { PaginatorComponent } from './components/datatable/paginator/paginator.component';
+import { FilterColumnsComponent } from './components/datatable/filter-columns/filter-columns.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     UserInfoComponent,
     FormsComponent,
     PaginatorComponent,
+    FilterColumnsComponent
     // TimeAgoPipe
   ],
   imports: [

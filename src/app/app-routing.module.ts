@@ -11,10 +11,13 @@ import { FormsComponent } from './components/forms/forms.component';
 
 const routes: Routes = [
   {path:'', redirectTo: 'dashboard', pathMatch: 'full'},
+  // RUTAS PÚBLICAS
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'recover', component: RecoverComponent},
-  {path:'dashboard', component: LayoutComponent, children:[
+  // RUTAS PRIVADAS
+  {path:'dashboard', component: LayoutComponent, 
+  children:[
     {path:'profile', component: ProfileComponent},
     {path:'table', component: DataTableComponent},
     {path:'forms', component: FormsComponent}
