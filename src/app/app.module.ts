@@ -32,6 +32,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsComponent } from './components/charts/charts.component';
 import { ReportsComponent } from './components/datatable/reports/reports.component';
 import { Angular2CsvModule, Angular2CsvComponent } from 'angular2-csv';
+import { AreaChartComponent } from './components/charts/area-chart/area-chart.component';
+import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
+import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { Angular2CsvModule, Angular2CsvComponent } from 'angular2-csv';
     FilterColumnsComponent,
     ReportsComponent,
     ChartsComponent,
+    AreaChartComponent,
+    BarChartComponent,
+    PieChartComponent,
     TimeAgoPipe,
   ],
   imports: [
