@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sb-admin-angular-theme": {
+    "SBAdminAngularTheme": {
       "projectType": "application",
       "schematics": {},
       "root": "",

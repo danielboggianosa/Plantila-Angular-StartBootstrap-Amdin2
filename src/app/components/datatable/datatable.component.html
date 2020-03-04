@@ -14,18 +14,18 @@
 
         <div class="card-title">
             <!-- SEARCH BUTTON -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="loadData()">
+            <form class=" d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="loadData()">
                 <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Filter..." aria-label="Search" aria-describedby="basic-addon2" name="filterValue" [(ngModel)]="filterValue">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-search fa-sm"></i> Search
+                    <i class="fas fa-search fa-sm"></i><span class="d-none d-md-inlie"> Search</span>
                     </button>
                 </div>
                 </div>
             </form>            
             <app-filter-columns [columns]="tableColumns" (loadColumns)="loadColumns($event)"></app-filter-columns>
-            <app-reports *ngIf="dataSource" [columns]="tableColumns" [data]="dataSource.data"></app-reports>
+            <app-reports *ngIf="dataSource" [columns]="tableColumns" [data]="csvData"></app-reports>
         </div>
 
         <div class="d-none d-sm-block" style="max-height: 500px; overflow-y: scroll;">
@@ -35,7 +35,7 @@
                         <th mat-header-cell *matHeaderCellDef mat-sort-header class="text text-primary p-2" [hidden]="!col.visible"><h6>{{col.title}}</h6></th>
                         <td mat-cell *matCellDef="let element" class="p-2" [hidden]="!col.visible">
                             <span *ngIf="['options','createdAt','updatedAt','deletedAt'].indexOf(col.key) == -1">{{ element[col.key] }}</span>
-                            <span *ngIf="['options','createdAt','updatedAt','deletedAt'].indexOf(col.key) > -1">{{ element[col.key] | timeAgo }}</span>
+                            <span *ngIf="['options','createdAt','updatedAt','deletedAt'].indexOf(col.key) > -1">{{ element[col.key] }}</span>
                             <span *ngIf="col.key=='options'">
                                 <button class="btn btn-danger btn-circle btn-sm m-1" (click)="delete(element.id)"><i class="fa fa-trash"></i></button>
                                 <button class="btn btn-primary btn-circle btn-sm m-1" (click)="edit(element.id)"><i class="fa fa-edit"></i></button>
@@ -46,6 +46,28 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+        </div>
+
+        <!-- RESPONSIVE -->
+        <div class="d-xs-block d-sm-none" *ngIf="dataSource" style="max-height: 600px; overflow-y: scroll;">
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let data of dataSource.data">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{data.nombre}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      {{data.apellido}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                    <p>correo: {{data.correo}}</p>
+                    <hr>
+                    <p>creado: {{data.createdAt}}</p>
+                    <hr>
+                    <button class="btn btn-danger btn-sm m-1" (click)="delete(data.id)"><i class="fa fa-trash"></i> Delete</button>
+                    <button class="btn btn-primary btn-sm m-1" (click)="edit(data.id)"><i class="fa fa-edit"></i> Edit</button>
+                </mat-expansion-panel>
+              </mat-accordion>
         </div>
     </div>
 

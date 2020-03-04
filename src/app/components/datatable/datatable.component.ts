@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { SubSink } from 'subsink';
-import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
+import * as moment from 'moment';
+import 'moment/locale/es-us';
 
 @Component({
   selector: 'app-data-table',
@@ -12,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class DataTableComponent implements OnInit, OnDestroy {
   subs = new SubSink
   dataSource;
+  csvData;
   cardTitle="Users";
   pageTitle="Tables";
   pageDescription="Para visualizar la data en esta tabla debes conectarte a un backend o a través de un servicio que traiga los datos. Revisa las instrucciones en los comentarios del código para mayor información";
@@ -44,7 +46,7 @@ export class DataTableComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // OBTENEMOS LA DATA DE ALGÚN SERVICIO Y LA ASIGANAMOS AL DATASOURCE
-    this.loadData()
+    this.loadData()    
   }
 
   ngOnDestroy(){
@@ -62,12 +64,14 @@ export class DataTableComponent implements OnInit, OnDestroy {
     }
     this.subs.sink = this.userService.getUsers(body).subscribe(
       res=>{
+        this.csvData = res['data'];
+        console.log(this.csvData);
         this.totalRows = (res['total']);
         this.dataSource = new MatTableDataSource(res['data']);
         this.dataSource.data.forEach(d => {
-          d.createdAt = new Date(d.createdAt)
-          d.updatedAt = new Date(d.updatedAt)
-          d.deletedAt = new Date(d.deletedAt)
+          d.createdAt = moment(d.createdAt).fromNow();
+          d.updatedAt = moment(d.updatedAt).fromNow();
+          d.deletedAt = moment(d.deletedAt).fromNow();
         });
       }
     )
