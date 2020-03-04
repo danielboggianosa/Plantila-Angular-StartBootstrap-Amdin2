@@ -14,12 +14,12 @@
 
         <div class="card-title">
             <!-- SEARCH BUTTON -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="loadData()">
+            <form class="d-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="loadData()">
                 <div class="input-group">
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Filter..." aria-label="Search" aria-describedby="basic-addon2" name="filterValue" [(ngModel)]="filterValue">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-search fa-sm"></i> Search
+                    <i class="fas fa-search fa-sm"></i><span class="d-none d-md-inline"> Search</span>
                     </button>
                 </div>
                 </div>
@@ -28,7 +28,7 @@
             <app-reports *ngIf="dataSource" [columns]="tableColumns" [data]="dataSource.data"></app-reports>
         </div>
 
-        <div class="d-none d-sm-block" style="max-height: 500px; overflow-y: scroll;">
+        <div class="d-none d-md-block" style="max-height: 500px; overflow-y: scroll;">
             <table mat-table [dataSource]="dataSource" matSort class="w-100 table" (matSortChange)="sortData($event)">
                 <div *ngFor="let col of tableColumns">
                     <ng-container matColumnDef="{{col.id}}">
@@ -45,6 +45,23 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+        </div>
+
+        <div class="d-xs-block" *ngIf="dataSource">
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let data of dataSource.data">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{data.nombre}} 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      {{data.apellido}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                    <p><i class="fa fa-envelope"></i> {{data.correo}}</p> 
+                    <p><i class="fa fa-clock"></i> {{data.createdAt}}</p>
+                </mat-expansion-panel>
+              </mat-accordion>
         </div>
     </div>
 

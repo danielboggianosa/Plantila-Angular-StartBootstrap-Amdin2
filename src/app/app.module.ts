@@ -14,25 +14,24 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import { DataTableComponent } from './components/datatable/datatable.component';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './components/common/logout/logout.component';
 import { SearchComponent } from './components/common/search/search.component';
 import { AlertsComponent } from './components/common/alerts/alerts.component';
 import { MessageComponent } from './components/common/message/message.component';
 import { UserInfoComponent } from './components/common/user-info/user-info.component';
-import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { TimeAgoPipe } from 'time-ago-pipe';
 import { FormsComponent } from './components/forms/forms.component';
-import { PaginatorComponent } from './components/datatable/paginator/paginator.component';
-import { FilterColumnsComponent } from './components/datatable/filter-columns/filter-columns.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ChartsComponent } from './components/charts/charts.component';
-import { ReportsComponent } from './components/datatable/reports/reports.component';
 import { Angular2CsvModule } from 'angular2-csv';
+import { ChartsModule } from './components/charts/charts.module';
+import { DataTableComponent } from './components/datatable/datatable.component';
+import { PaginatorComponent } from './components/datatable/paginator/paginator.component';
+import { ReportsComponent } from './components/datatable/reports/reports.component';
+import { FilterColumnsComponent } from './components/datatable/filter-columns/filter-columns.component';
+import { TimeAgoPipe } from 'time-ago-pipe'
 
 @NgModule({
   declarations: [
@@ -48,18 +47,16 @@ import { Angular2CsvModule } from 'angular2-csv';
     ProfileComponent,
     ConfigurationComponent,
     CalendarComponent,
-    DataTableComponent,
     LogoutComponent,
     SearchComponent,
     AlertsComponent,
     MessageComponent,
     UserInfoComponent,
     FormsComponent,
+    DataTableComponent,
     PaginatorComponent,
+    ReportsComponent,
     FilterColumnsComponent,
-    ChartsComponent,
-    ReportsComponent
-    // TimeAgoPipe
   ],
   imports: [
     BrowserModule,
@@ -69,7 +66,9 @@ import { Angular2CsvModule } from 'angular2-csv';
     BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
-    Angular2CsvModule
+    ChartsModule,
+    Angular2CsvModule,
+    // TimeAgoPipe
   ],
   providers: [],
   bootstrap: [AppComponent]
