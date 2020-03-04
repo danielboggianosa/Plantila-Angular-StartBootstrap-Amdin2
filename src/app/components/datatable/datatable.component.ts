@@ -64,7 +64,11 @@ export class DataTableComponent implements OnInit, OnDestroy {
       res=>{
         this.totalRows = (res['total']);
         this.dataSource = new MatTableDataSource(res['data']);
-        
+        this.dataSource.data.forEach(d => {
+          d.createdAt = new Date(d.createdAt)
+          d.updatedAt = new Date(d.updatedAt)
+          d.deletedAt = new Date(d.deletedAt)
+        });
       }
     )
   }
