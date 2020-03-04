@@ -15,7 +15,7 @@ export class DataTableComponent implements OnInit, OnDestroy {
   cardTitle="Users";
   pageTitle="Tables";
   pageDescription="Para visualizar la data en esta tabla debes conectarte a un backend o a través de un servicio que traiga los datos. Revisa las instrucciones en los comentarios del código para mayor información";
-
+  
   // ARMADO DINÁMICO DE LA TABLA
   // title: corresponde al título que tendrá cada columna
   // key: es el identificador de la tabla que contiene el valor (propiedad)
@@ -24,12 +24,16 @@ export class DataTableComponent implements OnInit, OnDestroy {
     {id:'2', key:'nombre',    title:'NOMBRE',   visible:true},
     {id:'3', key:'apellido',  title:'APELLIDO', visible:true},
     {id:'4', key:'correo',    title:'CORREO',   visible:true},
-    {id:'5', key:'rol',       title:'ROL',      visible:false},
-    {id:'6', key:'imagen',    title:'IMAGEN',   visible:false},
-    {id:'7', key:'createdAt', title:'CREADO',   visible:true},
+    {id:'5', key:'imagen',    title:'IMAGEN',   visible:false},
+    {id:'6', key:'password',  title:'PASSWORD',   visible:false},
+    {id:'7', key:'rol',       title:'ROL',      visible:false},
+    {id:'8', key:'createdAt', title:'CREADO',   visible:true},
+    {id:'9', key:'updatedAt', title:'ACTUALIZADO',   visible:false},
+    {id:'10', key:'deletedAt', title:'BORRADO',   visible:false},
     {id:'0', key:'options',   title:'OPTIONS',  visible:true},
   ];
   displayedColumns = this.tableColumns.map(c => c.id);
+  attributes = this.tableColumns.filter(c => c.visible && c.id!='0').map(m=>m.key);
   pageSize:number=10;
   totalRows: number;
   filterValue:any;
@@ -47,13 +51,14 @@ export class DataTableComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  loadData(page=null, value=null, field=null, order=null){
+  loadData(page=null, value=null, field=null, order=null, attributes=null){
     let body={
       page:(page) ? +page : 0,
       size: +this.pageSize,
       field: (field) ? field : this.field,
       order: (order) ? order : this.order,
       value: (value) ? value : this.filterValue,
+      attributes: (attributes) ? attributes : this.attributes
     }
     this.subs.sink = this.userService.getUsers(body).subscribe(
       res=>{
@@ -66,6 +71,11 @@ export class DataTableComponent implements OnInit, OnDestroy {
 
   loadSize(e){
     this.pageSize = e;
+    this.loadData();
+  }
+
+  loadColumns(e){
+    this.attributes = e;
     this.loadData();
   }
 

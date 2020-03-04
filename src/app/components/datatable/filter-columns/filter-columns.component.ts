@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FilterColumnsComponent implements OnInit {
   @Input() columns;
+  @Output() loadColumns = new EventEmitter<any>();
 
   constructor(private modal:NgbModal) { }
 
@@ -18,6 +19,12 @@ export class FilterColumnsComponent implements OnInit {
     this.modal.open(content, {size:'sm', centered:false});
   }
   close(){
+    this.modal.dismissAll();
+  }
+
+  filtrar(){
+    let attributes = this.columns.filter(c => c.visible && c.id!='0').map(m=>m.key);
+    this.loadColumns.emit(attributes);
     this.modal.dismissAll();
   }
 

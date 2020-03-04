@@ -24,7 +24,8 @@
                 </div>
                 </div>
             </form>            
-            <app-filter-columns [columns]="tableColumns" ></app-filter-columns>
+            <app-filter-columns [columns]="tableColumns" (loadColumns)="loadColumns($event)"></app-filter-columns>
+            <app-reports *ngIf="dataSource" [columns]="tableColumns" [data]="dataSource.data"></app-reports>
         </div>
 
         <div class="d-none d-sm-block" style="max-height: 500px; overflow-y: scroll;">
