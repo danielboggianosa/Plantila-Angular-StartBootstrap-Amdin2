@@ -9,7 +9,7 @@ import Chart from 'chart.js/dist/Chart';
 export class ChartsComponent implements OnInit {
   @ViewChild('myAreaChart',{static:false}) myAreaChart;
 
-  myChart = new Chart(myAreaChart, {
+  myChart = new Chart(this.myAreaChart.nativeElement.id, {
     type: 'line',
     data: {
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],

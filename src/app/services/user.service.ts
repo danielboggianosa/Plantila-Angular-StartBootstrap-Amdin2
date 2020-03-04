@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUsers(body){
-    return this.http.post(this.api_url+'/paged',body)
+    return this.http.post(this.api_url+'/get',body)
   }
 
   getFiltered(body){

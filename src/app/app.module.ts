@@ -31,6 +31,8 @@ import { PaginatorComponent } from './components/datatable/paginator/paginator.c
 import { FilterColumnsComponent } from './components/datatable/filter-columns/filter-columns.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsComponent } from './components/charts/charts.component';
+import { ReportsComponent } from './components/datatable/reports/reports.component';
+import { Angular2CsvModule } from 'angular2-csv';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { ChartsComponent } from './components/charts/charts.component';
     PaginatorComponent,
     FilterColumnsComponent,
     ChartsComponent,
+    ReportsComponent
     // TimeAgoPipe
   ],
   imports: [
@@ -66,6 +69,7 @@ import { ChartsComponent } from './components/charts/charts.component';
     BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
+    Angular2CsvModule
   ],
   providers: [],
   bootstrap: [AppComponent]
