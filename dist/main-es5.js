@@ -49811,7 +49811,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ServerService = function ServerService() {
       _classCallCheck(this, ServerService);
 
-      this.API_URI = "http://localhost:3000/api/";
+      this.API_URI = "http://138.197.196.196:3000/api/";
     };
 
     ServerService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

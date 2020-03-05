@@ -31172,7 +31172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let ServerService = class ServerService {
     constructor() {
-        this.API_URI = "http://localhost:3000/api/";
+        this.API_URI = "http://138.197.196.196:3000/api/";
     }
 };
 ServerService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
