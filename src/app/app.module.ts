@@ -35,6 +35,7 @@ import { Angular2CsvModule, Angular2CsvComponent } from 'angular2-csv';
 import { AreaChartComponent } from './components/charts/area-chart/area-chart.component';
 import { BarChartComponent } from './components/charts/bar-chart/bar-chart.component';
 import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { PieChartComponent } from './components/charts/pie-chart/pie-chart.compo
     BarChartComponent,
     PieChartComponent,
     TimeAgoPipe,
+    ProgressBarComponent,
   ],
   imports: [
     BrowserModule,

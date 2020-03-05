@@ -29,6 +29,7 @@ export class BarChartComponent implements OnInit, OnChanges {
           hoverBackgroundColor: "#aa59d9",
           borderColor: "#4e73df",
           data: this.data,
+          BarThickness: 25,
         }],
       },
       options: {
@@ -53,7 +54,6 @@ export class BarChartComponent implements OnInit, OnChanges {
             ticks: {
               maxTicksLimit: 6
             },
-            maxBarThickness: 25,
           }],
           yAxes: [{
             ticks: {
