@@ -29,7 +29,7 @@
         
         <!-- MENU CON SUBMENU -->
         <div *ngIf="menu.link==''" id="menu_{{menu.id}}">          
-          <a class="nav-link collapsed" id="menu_name_{{menu.id}}" data-toggle="collapse" (click)="toggleSubmenu(group.id, menu.id)" routerLink="{{menu.link}}">
+          <a class="nav-link collapsed" id="menu_name_{{menu.id}}" data-toggle="collapse" (click)="toggleSubmenu(group.id, menu.id)" style="cursor: pointer;">
             <i class="{{menu.icon}}"></i>
             <span>{{menu.title}}</span>
           </a>

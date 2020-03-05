@@ -8,15 +8,30 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProgressBarComponent implements OnInit {
   @Input() bars=[
     {
-      nombre: 'Barra 1',
-      progreso: 75,
-      color: '#e74a3b'
+      nombre: 'Server Migration',
+      progreso: 20,
+      color: '#e74a3b' //bg-danger
     },
     {
-      nombre: 'Barra 2',
+      nombre: 'Sales tracking',
+      progreso: 40,
+      color: '#f6c23e' //bg-warning   
+    },
+    {
+      nombre: 'Customer Database',
+      progreso: 60,
+      color: '#4e73df' //bg-primary   
+    },
+    {
+      nombre: 'Payout Details',
       progreso: 80,
-      color: '#4e73df'      
-    }
+      color: '#36b9cc' //bg-primary   
+    },
+    {
+      nombre: 'Account Setup',
+      progreso: 100,
+      color: '#1cc88a' //bg-primary   
+    },
   ]
 
   constructor() { }

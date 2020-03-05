@@ -1,7 +1,6 @@
 <div *ngFor="let bar of bars">
-    <input type="number" name="progress" min="0" max="100" [(ngModel)]="bar.progreso" id="">
-    <div class="mb-1 small">{{bar.nombre}}</div>
+    <h4 class="small font-weight-bold">{{bar.nombre}} <span class="float-right">{{bar.progreso}}%</span></h4>
     <div class="progress mb-4">
-        <div class="progress-bar" [style]="{width:bar.progreso+'%',background:bar.color}">{{bar.progreso}}%</div>
+        <div class="progress-bar" [style]="{width:bar.progreso+'%',background:bar.color}"></div>
     </div>
 </div>
