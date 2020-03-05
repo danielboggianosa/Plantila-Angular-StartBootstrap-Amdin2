@@ -28361,7 +28361,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Nav Item - User Information -->\r\n<li class=\"nav-item dropdown no-arrow\">\r\n    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n      <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">Valerie Luna</span>\r\n      <img class=\"img-profile rounded-circle\" src=\"https://source.unsplash.com/QAB-WJcbgJk/60x60\">\r\n    </a>\r\n    <!-- Dropdown - User Information -->\r\n    <div class=\"dropdown-menu dropdown-menu-right shadow animated--grow-in\" aria-labelledby=\"userDropdown\">\r\n      <a class=\"dropdown-item\" href=\"#\">\r\n        <i class=\"fas fa-user fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Profile\r\n      </a>\r\n      <a class=\"dropdown-item\" href=\"#\">\r\n        <i class=\"fas fa-cogs fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Settings\r\n      </a>\r\n      <a class=\"dropdown-item\" href=\"#\">\r\n        <i class=\"fas fa-list fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Activity Log\r\n      </a>\r\n      <div class=\"dropdown-divider\"></div>\r\n      <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#logoutModal\">\r\n        <i class=\"fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Logout\r\n      </a>\r\n    </div>\r\n  </li>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Nav Item - User Information -->\r\n<li class=\"nav-item dropdown no-arrow\">\r\n    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n      <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">Daniel Boggiano</span>\r\n      <img class=\"img-profile rounded-circle\" src=\"http://138.197.196.196/api/imagenes/11.jpg\">\r\n    </a>\r\n    <!-- Dropdown - User Information -->\r\n    <div class=\"dropdown-menu dropdown-menu-right shadow animated--grow-in\" aria-labelledby=\"userDropdown\">\r\n      <a class=\"dropdown-item\" routerLink=\"profile\">\r\n        <i class=\"fas fa-user fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Profile\r\n      </a>\r\n      <a class=\"dropdown-item\" routerLink=\"\">\r\n        <i class=\"fas fa-cogs fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Settings\r\n      </a>\r\n      <a class=\"dropdown-item\" routerLink=\"\">\r\n        <i class=\"fas fa-list fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Activity Log\r\n      </a>\r\n      <div class=\"dropdown-divider\"></div>\r\n      <a class=\"dropdown-item\" routerLink=\"/login\" data-toggle=\"modal\" data-target=\"#logoutModal\">\r\n        <i class=\"fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400\"></i>\r\n        Logout\r\n      </a>\r\n    </div>\r\n  </li>");
 
 /***/ }),
 
@@ -31172,7 +31172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let ServerService = class ServerService {
     constructor() {
-        this.API_URI = "http://138.197.196.196:3000/api/";
+        this.API_URI = "http://localhost:3000/api/";
     }
 };
 ServerService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
