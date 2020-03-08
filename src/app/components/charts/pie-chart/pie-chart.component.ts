@@ -7,8 +7,8 @@ import {Chart} from 'chart.js';
   styles: []
 })
 export class PieChartComponent implements OnInit, OnChanges {
-  @Input() labels=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  @Input() data=[0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000];
+  @Input() labels=[];
+  @Input() data=[];
   myPieChart=[];
   bgColors=[];
 

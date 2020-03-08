@@ -5,9 +5,7 @@ import { RegisterComponent } from './components/public/register/register.compone
 import { RecoverComponent } from './components/public/recover/recover.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { DataTableComponent } from './components/datatable/datatable.component';
 import { FormsComponent } from './components/forms/forms.component';
-import { ChartsComponent } from './components/charts/charts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ButtonsComponent } from './components/interface/buttons/buttons.component';
 import { CardsComponent } from './components/interface/cards/cards.component';
@@ -17,6 +15,8 @@ import { AnimaitionsComponent } from './components/interface/animaitions/animait
 import { OtherComponent } from './components/interface/other/other.component';
 import { UnknownComponent } from './components/interface/unknown/unknown.component';
 import { BlankComponent } from './components/interface/blank/blank.component';
+import { DataTableComponent } from './components/datatable/datatable.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 
 const routes: Routes = [
