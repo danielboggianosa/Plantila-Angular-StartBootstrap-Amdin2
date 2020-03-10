@@ -9,9 +9,10 @@ import { SubSink } from 'subsink';
 })
 export class RecoverComponent implements OnInit {
   subs = new SubSink
-  correo;
-  successMessage: any;
+
+  usuario={correo:null};
   failMessage: any;
+  successMessage: any;
 
   constructor(private authService:AuthService) { }
 
@@ -19,16 +20,19 @@ export class RecoverComponent implements OnInit {
   }
 
   onSubmit(){
-    this.subs.sink = this.authService.recover(this.correo).subscribe(res=>{
-      if(res['success']){
-        delete this.failMessage;
-        this.successMessage = res['msg'];
-      }
-      else{
-        delete this.successMessage;
-        this.failMessage = res['msg']
-      }
-    })
+    if(this.usuario.correo)
+      this.subs.sink = this.authService.recover(this.usuario).subscribe(res=>{
+        if(res['success']){
+          delete this.failMessage;
+          this.successMessage = res['msg'];
+        }
+        else{
+          delete this.successMessage;
+          this.failMessage = res['msg']
+        }
+      })
+    else
+      this.failMessage = "El correo no puede estar vacío"
   }
 
 }
