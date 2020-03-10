@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { SubSink } from 'subsink';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit, OnDestroy {
   subs = new SubSink;
   usuario={
-    email:null,
+    correo:null,
     password:null,
   }
   @ViewChild('loginForm',{static:false}) loginForm;
+  loginMessage: string;
 
-  constructor(private userService:UserService, private router:Router) { }
+  constructor(protected authService:AuthService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,10 +28,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login(){
     console.log('validando');
-    this.subs.sink = this.userService.login(this.usuario).subscribe(
+    this.subs.sink = this.authService.login(this.usuario).subscribe(
       res=>{
-        alert(res['message']);
-        this.router.navigateByUrl('/dashboard');
+        if(res['msg']=="autorizado"){
+          sessionStorage.setItem('user.nombre', res['user'].nombre)
+          sessionStorage.setItem('user.apellido', res['user'].apellido)
+          sessionStorage.setItem('user.correo', res['user'].correo)
+          sessionStorage.setItem('user.imagen', res['user'].imagen)
+          if(sessionStorage.getItem('user.correo'))
+            this.router.navigateByUrl('/dashboard');
+        } 
+        else
+          this.loginMessage = res['msg'];
+
       }
     )
     this.loginForm.nativeElement.reset();

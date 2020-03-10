@@ -22,13 +22,11 @@ import { InterfaceModule } from './components/interface/interface.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { DataTableModule } from './components/datatable/datatable.module';
 import { ChartsModule } from './components/charts/charts.module';
+import { PublicPagesModule } from './components/public/public.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    RecoverComponent,
     DashboardComponent,
     ProfileComponent,
     ConfigurationComponent,
@@ -48,7 +46,8 @@ import { ChartsModule } from './components/charts/charts.module';
     InterfaceModule,
     LayoutModule,
     DataTableModule,
-    ChartsModule
+    ChartsModule,
+    PublicPagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
