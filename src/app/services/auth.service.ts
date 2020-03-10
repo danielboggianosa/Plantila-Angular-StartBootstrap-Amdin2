@@ -24,4 +24,8 @@ export class AuthService {
     return this.http.post(this.api_url+"recover", correo);
   }
 
+  reset(usuario){
+    return this.http.post(this.api_url+"reset", usuario);
+  }
+
 }

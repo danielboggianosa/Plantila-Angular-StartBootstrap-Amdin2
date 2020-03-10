@@ -6,13 +6,15 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ResetComponent } from './reset/reset.component';
 
 @NgModule({
     declarations:[
         LoginComponent,
         RegisterComponent,
         RecoverComponent,
-        UnknownComponent
+        UnknownComponent,
+        ResetComponent
     ],
     imports:[
         FormsModule, 
