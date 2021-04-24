@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/public/login/login.component';
-import { RegisterComponent } from './components/public/register/register.component';
-import { RecoverComponent } from './components/public/recover/recover.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
