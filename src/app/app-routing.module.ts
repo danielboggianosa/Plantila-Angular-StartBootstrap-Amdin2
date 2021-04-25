@@ -17,6 +17,7 @@ import { UnknownComponent } from './components/interface/unknown/unknown.compone
 import { BlankComponent } from './components/interface/blank/blank.component';
 import { DataTableComponent } from './components/datatable/datatable.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'recover', component: RecoverComponent},
   // RUTAS PRIVADAS
-  {path:'dashboard', component: LayoutComponent, 
+  {path:'dashboard', component: LayoutComponent, canActivate: [AuthGuardService], canActivateChild: [AuthGuardService],
   children:[
     {path:'', component: DashboardComponent},
     {path:'profile', component: ProfileComponent},

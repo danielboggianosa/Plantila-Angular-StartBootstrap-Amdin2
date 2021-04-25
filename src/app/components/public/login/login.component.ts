@@ -30,12 +30,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     console.log('validando');
     this.subs.sink = this.authService.login(this.usuario).subscribe(
       res=>{
-        if(res['msg']=="autorizado"){
-          sessionStorage.setItem('user.nombre', res['user'].nombre)
-          sessionStorage.setItem('user.apellido', res['user'].apellido)
-          sessionStorage.setItem('user.correo', res['user'].correo)
-          sessionStorage.setItem('user.imagen', res['user'].imagen)
-          if(sessionStorage.getItem('user.correo'))
+        console.log(res)
+        if(res['success']){
+          sessionStorage.setItem('user.nombre', res['data'].first_name)
+          sessionStorage.setItem('user.apellido', res['data'].last_name)
+          sessionStorage.setItem('user.nickname', res['data'].nickname)
+          sessionStorage.setItem('user.level', res['data'].wp_user_level)
+          sessionStorage.setItem('token', res['token'])
+          if(sessionStorage.getItem('token'))
             this.router.navigateByUrl('/dashboard');
         } 
         else

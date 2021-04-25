@@ -18,7 +18,7 @@
                   <form class="user" #loginForm>
                     <div class="alert alert-danger" *ngIf="loginMessage">{{loginMessage}}</div>
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingresa Tu Correo..." [(ngModel)]="usuario.correo">
+                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingresa Tu Usuario o Correo..." [(ngModel)]="usuario.correo">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña" [(ngModel)]="usuario.password">
