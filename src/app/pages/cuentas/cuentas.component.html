@@ -1,0 +1,30 @@
+<!-- Illustrations -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">{{$empresa.nombre}}</h6>
+    </div>
+    <div class="card-body">
+      <div class="text-center">
+        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="/assets/img/undraw_online_ad_re_ol62.png" alt="">
+      </div>
+      <p>{{$empresa.notas}}</p>
+      <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+    </div>
+  </div>
+
+<app-datacards
+[tableColumns]="tableColumns"
+[dataSource]="dataSource"
+[csvData]="csvData"
+[cardTitle]="cardTitle"
+[pageSize]="pageSize"
+[totalRows]="totalRows"
+[filterValue]="filterValue"
+[field]="field"
+[order]="order"
+[cardType]="cardType"
+(getData)="loadData($event)"
+(deleteData)="delete($event)"
+(updateData)="update($event)"
+(selectData)="select($event)"
+></app-datacards>

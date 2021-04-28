@@ -20,6 +20,7 @@ import { LayoutModule } from './components/layout/layout.module';
 import { DataTableModule } from './components/datatable/datatable.module';
 import { ChartsModule } from './components/charts/charts.module';
 import { PublicPagesModule } from './components/public/public.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { PublicPagesModule } from './components/public/public.module';
     ConfigurationComponent,
     CalendarComponent,
     FormsComponent,
-    ProgressBarComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +45,8 @@ import { PublicPagesModule } from './components/public/public.module';
     LayoutModule,
     DataTableModule,
     ChartsModule,
-    PublicPagesModule
+    PublicPagesModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
