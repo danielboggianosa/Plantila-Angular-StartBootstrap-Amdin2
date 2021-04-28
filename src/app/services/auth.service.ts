@@ -45,7 +45,8 @@ export class AuthService {
     const token = sessionStorage.getItem('token')
     const tokenPayLoad:tokenPayLoad = decode(token)
     let now = new Date().getTime()
-    let ext = new Date(tokenPayLoad.ext * 1000).getTime()
+    let time:any = tokenPayLoad.ext
+    let ext = new Date(time * 1000).getTime()
     if(sessionStorage.getItem('user.nickname') && now < ext)
       return true
     else{

@@ -14,11 +14,8 @@ export class SidebarComponent implements OnInit {
     {id: 1, title: '', permission:'', menu:[
       {id:1, title: 'Dashboard', icon:'fas fa-fw fa-tachometer-alt', link: '/dashboard', permission:'', subtitle: '', submenu:[]},
     ]},
-    {id: 2, title: 'Interface', permission:'', menu:[
-      {id:1, title: 'Components', icon:'fas fa-fw fa-cog', link: '', permission:'', subtitle: 'Custom Components', submenu:[
-        {id:2, title:'Buttons', link:'buttons', permission:''},
-        {id:3, title:'Cards', link:'cards', permission:'' },
-      ]},
+    {id: 2, title: 'Elementos', permission:'', menu:[
+      {id:1, title: 'Empresas', icon:'fas fa-fw fa-building', link: 'empresas', permission:'', subtitle: 'Custom Components', submenu:[]},
       {id:3, title: 'Utilitis', icon:'fas fa-fw fa-wrench', link: '', permission:'', subtitle: 'Custom Utilities', submenu:[
         {id:5, title:'Colors', link:'colors', permission:'' },
         {id:6, title:'Borders', link:'borders', permission:'' },

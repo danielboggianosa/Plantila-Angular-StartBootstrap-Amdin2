@@ -33,28 +33,28 @@ export class PaginatorComponent implements OnInit, OnChanges {
   pagination(p){
     this.currentPage = p;
     let i = (this.currentPage * this.pageSize) - this.pageSize;
-    this.loadData.emit(i)
+    this.loadData.emit(this.currentPage)
   }
 
   paginationPrev(){
     this.currentPage = (this.currentPage > 1) ? this.currentPage - 1 : this.currentPage;
     let i = (this.currentPage * this.pageSize) - this.pageSize;
-    this.loadData.emit(i)
+    this.loadData.emit(this.currentPage)
   }
 
   paginationNext(){
     this.currentPage = (this.currentPage < this.lastPage) ? this.currentPage + 1 : this.lastPage;
     let i = (this.currentPage * this.pageSize) - this.pageSize;
-    this.loadData.emit(i)
+    this.loadData.emit(this.currentPage)
   }
   paginationFirst(){
     this.currentPage = 1,
-    this.loadData.emit(0)
+    this.loadData.emit(1)
   }
   paginationLast(){
     this.currentPage = this.lastPage
     let i = (this.lastPage * this.pageSize) - this.pageSize;
-    this.loadData.emit(i)
+    this.loadData.emit(this.currentPage)
   }
 
   fillPages(){

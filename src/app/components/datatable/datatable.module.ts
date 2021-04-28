@@ -17,6 +17,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
         ReportsComponent,
         DataTableComponent
     ],
+    exports:[
+        DataTableComponent,
+        PaginatorComponent,
+        FilterColumnsComponent,
+        ReportsComponent
+    ],
     imports:[
         FormsModule,
         CommonModule,
