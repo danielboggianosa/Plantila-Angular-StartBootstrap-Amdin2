@@ -6,7 +6,7 @@
     <div class="card-body">
 
         <div class="card-title">
-            <!-- SEARCH BUTTON -->
+            <!-- SEARCH FORM -->
             <form class=" d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="searchData()" *ngIf="SearchForm">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" placeholder="Filtrar..." aria-label="Search" aria-describedby="basic-addon2" name="filterValue" [(ngModel)]="filterValue">
@@ -24,6 +24,32 @@
                             <button class="btn btn-primary" type="submit">
                             <i class="fas fa-search fa-sm"></i><span class="d-none d-md-inlie"> Search</span>
                             </button>
+                        </div>
+                </div>
+            </form>
+            
+            <form class=" d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <div class="form-control bg-light border-0 small">Ordernar Por...</div>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary dropdown-toggle text-uppercase" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{field}}
+                            </button>
+                            <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                <span *ngFor="let col of tableColumns">
+                                    <a class="dropdown-item" [routerLink]="" (click)="field=col.key" *ngIf="col.visible"><span>{{col.title}}</span></a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary dropdown-toggle text-uppercase" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-sort-alpha-down" *ngIf="order=='asc'"></i>
+                                <i class="fa fa-sort-alpha-down-alt" *ngIf="order=='desc'"></i>
+                            </button>
+                            <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" [routerLink]="" (click)="order='asc';loadOrder($event)"><span><i class="fa fa-sort-alpha-down"></i> ASCENDENTE</span></a>
+                                <a class="dropdown-item" [routerLink]="" (click)="order='desc';loadOrder($event)"><span><i class="fa fa-sort-alpha-down-alt"></i> DESCENDENTE</span></a>
+                            </div>
                         </div>
                 </div>
             </form>
@@ -112,7 +138,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <!-- <i class="fas fa-comments fa-2x text-gray-300"></i> -->
-                                    <img src="http://picsum.photos/50/50" class="img-thumbnail">
+                                    <img src="{{data.imagen || 'http://picsum.photos/80/80'}}" class="img-thumbnail" width="80">
                                 </div>
                             </div>
                         </div>
@@ -145,7 +171,7 @@
             <!-- Cuentas Card Example -->
             <div *ngIf="cardType=='cuentas'" class="col-xs-12 col-md-6">
                 <div *ngFor="let data of dataSource" class="mb-2">            
-                    <div class="card shadow h-100 py-2 border-left-info">
+                    <div class="card shadow h-100 py-2 border-bottom-info">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">

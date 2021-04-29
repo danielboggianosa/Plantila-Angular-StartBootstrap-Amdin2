@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 })
 export class FormsComponent implements OnInit {
   @Input() pageTitle="Forms";
-  @Input() pageDescription="DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the DataTables documentation";
+  @Input() cardDescription="";
   @Input() cardTitle="Forms Example";
 
   // INICIO DEL FORMULARIO
@@ -80,6 +80,11 @@ export class FormsComponent implements OnInit {
   @ViewChild('Formulario',{static:false}) Formulario;
   error:Array<string>=[];
   @Output() onSubmit = new EventEmitter<any>();
+  @Output() onInputChange = new EventEmitter<any>();
+  @Output() onCancel = new EventEmitter<any>();
+  @Input() buttonText = 'Enviar Datos'
+  @Input() buttonClass:string
+  @Input() cancelButton:boolean=false
 
   // fin de propiedades del formulario
 
@@ -88,6 +93,22 @@ export class FormsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  cancel(){
+    this.onCancel.emit()
+  }
+
+  // EMITE EL NOMBRE DEL CAMPO QUE HA CAMBIADO
+  inputChange(e){    
+    for(let i=0; i<this.myFormFields.length; i++){
+      if(e == this.myFormFields[i].name && (this.myFormFields[i].type == 'file' || this.myFormFields[i].type == 'image')){
+        this.myFormFields[i].placeholder = this.myForm[e].split('\\')[2]
+        break;
+      }
+    }
+    this.onInputChange.emit(e)
+    // el valor correspondiente a este campo se obtiene con la siguiete variable => "this.myForm[a]"
   }
 
   /* INICIO DE FUNCIONES DEL FORMULARIO */

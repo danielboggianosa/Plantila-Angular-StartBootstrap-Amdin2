@@ -88,6 +88,10 @@ export class DatacardsComponent implements OnInit {
     this.loadData({page: e});
   }
 
+  loadOrder(e){
+    this.loadData({order:this.order, field:this.field})
+  }
+
   loadColumns(e){
     this.attributes = e;
     this.loadData({attributes:e});
