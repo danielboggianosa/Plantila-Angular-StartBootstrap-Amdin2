@@ -1,16 +1,42 @@
-<app-datacards
-[tableColumns]="tableColumns"
-[dataSource]="dataSource"
-[csvData]="csvData"
-[cardTitle]="cardTitle"
-[pageSize]="pageSize"
-[totalRows]="totalRows"
-[filterValue]="filterValue"
-[field]="field"
-[order]="order"
-[cardType]="cardType"
-(getData)="loadData($event)"
-(deleteData)="delete($event)"
-(updateData)="update($event)"
-(selectData)="select($event)"
-></app-datacards>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-4 text-gray-800">{{title}}</h1>
+    <a [routerLink]="" class="btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+          <i class="fas fa-plus-square" *ngIf="!hide"></i>
+          <i class="fas fa-list" *ngIf="hide"></i>
+        </span>
+        <span class="text" (click)="hide=!hide">
+            <span *ngIf="!hide">Nueva Empresa</span>
+            <span *ngIf="hide">Ver Lista</span>
+        </span>
+    </a>
+</div>
+
+<ng-container *ngIf="!hide">
+    <app-datacards
+    [tableColumns]="tableColumns"
+    [dataSource]="dataSource"
+    [csvData]="csvData"
+    [cardTitle]="cardTitle"
+    [pageSize]="pageSize"
+    [totalRows]="totalRows"
+    [filterValue]="filterValue"
+    [field]="field"
+    [order]="order"
+    [cardType]="cardType"
+    (getData)="loadData($event)"
+    (deleteData)="delete($event)"
+    (updateData)="update($event)"
+    (selectData)="select($event)"
+    ></app-datacards>
+</ng-container>
+
+<ng-container *ngIf="hide">
+    <app-forms
+    [myForm]="myForm"
+    [myFormFields]="myFormFields"
+    [cardTitle]="formsTitle"
+    (onSubmit)="create($event)"
+    ></app-forms>
+</ng-container>

@@ -34,7 +34,7 @@ export class RegistrosComponent implements OnInit {
     {id:'7', key:'cci', title:'CCI', visible:true},
     {id:'8', key:'saldo', title:'SALDO', visible:true},
     {id:'9', key:'notas', title:'NOTAS', visible:false},
-    {id:'10', key:'createdAt', title:'ACTUALIZADO',   visible:false},
+    {id:'10', key:'fecha', title:'FECHA',   visible:true},
     {id:'0', key:'options',   title:'OPCIONES',  visible:true, options:{delete:true,edit:true,select:false,unselect:false}},
   ]
   cuenta;
@@ -75,7 +75,7 @@ export class RegistrosComponent implements OnInit {
         this.totalRows = (res['pagina']['total_filas']);
         this.dataSource = res['data'];
         this.dataSource.forEach(d => {
-          d.createdAt = (d.createdAt) ? moment(d.createdAt).fromNow() : '';
+          d.fecha = (d.fecha) ? moment(d.fecha).fromNow() : '';
           d.updatedAt = (d.updatedAt) ? moment(d.updatedAt).fromNow() : '';
           d.deletedAt = (d.deletedAt) ? moment(d.deletedAt).fromNow() : '';
         });

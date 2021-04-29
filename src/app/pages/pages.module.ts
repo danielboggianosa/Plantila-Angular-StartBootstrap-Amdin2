@@ -8,7 +8,7 @@ import { DataTableModule } from '../components/datatable/datatable.module';
 import { EmpresasService } from '../services/empresas.service';
 import { RegistrosComponent } from './registros/registros.component';
 import { DatacardsComponent } from '../components/datacards/datacards.component';
-import { PaginatorComponent } from '../components/datatable/paginator/paginator.component';
+import { AppComponentsModule } from '../components/app-components.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { PaginatorComponent } from '../components/datatable/paginator/paginator.
     FormsModule, 
     CommonModule,
     RouterModule,
-    DataTableModule
+    DataTableModule,
+    AppComponentsModule
   ],
   providers: [
     EmpresasService

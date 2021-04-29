@@ -1,4 +1,5 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { toTypeScript } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { environment as env } from '../../environments/environment'
 import { AuthService } from './auth.service';
@@ -28,6 +29,10 @@ export class EmpresasService {
 
   actualizar(id, empresa){
     return this.http.put(this.url+id, empresa, this.headers)
+  }
+
+  crear(body){
+    return this.http.post(this.url, body, this.headers)
   }
 
   borrar(id){

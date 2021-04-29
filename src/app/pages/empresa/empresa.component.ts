@@ -18,7 +18,7 @@ export class EmpresaComponent implements OnInit {
   pageSize: number = 10;
   field:string = 'id';
   order:string = 'asc';
-  cardTitle:string = 'Empresas';
+  cardTitle:string = 'Lista de Empresas';
   filterValue: string = '';
   attributes: any;
   csvData: any;
@@ -37,6 +37,19 @@ export class EmpresaComponent implements OnInit {
   page: number = 1;
   search: string = '';
   constructor(private empresaService:EmpresasService, private ngbModal:NgbModal, private router:Router) { }
+  hide:boolean=false
+
+  myForm = {
+    nombre:null,
+    notas:null,
+    imagen:null,
+  }
+  myFormFields = [
+    {id: 1, tag:'input', name:'nombre', type:'text', placeholder:'Nombre', required:true, disabled:false, options:[]},
+    {id: 2, tag:'input', name:'imagen', type:'text', placeholder:'URL de la imágen', required:false, disabled:false, options:[]},
+    {id: 18, tag:'textarea', name:'notas', type:'text', placeholder:'Descripción', required:false, disabled:false, options:[]},
+  ]
+  formsTitle:string = 'Crear Nueva Empresa'
 
   ngOnInit(): void {
     this.loadData({page:0,size:this.pageSize,field:this.field,order:this.order,value:this.filterValue,attributes:this.attributes, search:this.search});
@@ -106,6 +119,16 @@ export class EmpresaComponent implements OnInit {
     console.log(e)
     this.empresa = this.dataSource.filter( data => data.id == e)
     this.router.navigate(['/dashboard/cuentas', e], {state: this.empresa[0]})
+  }
+
+  create(e){
+    console.log(e)
+    this.subs.sink = this.empresaService.crear(e).subscribe(res => {
+      if(res['success'])
+        this.hide=!this.hide
+      else
+        alert(res['message'])
+    })
   }
 
 }

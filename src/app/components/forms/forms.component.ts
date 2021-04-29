@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-forms',
@@ -6,9 +6,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styles: []
 })
 export class FormsComponent implements OnInit {
-  pageTitle="Forms";
-  pageDescription="DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the DataTables documentation";
-  cardTitle="Forms Example";
+  @Input() pageTitle="Forms";
+  @Input() pageDescription="DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the DataTables documentation";
+  @Input() cardTitle="Forms Example";
 
   // INICIO DEL FORMULARIO
   // DECLARE EACH ONE OF THE INPUT FIELDS YOU WILL BE RECEIVING FROM THE FORM
@@ -17,7 +17,7 @@ export class FormsComponent implements OnInit {
   Esta es la variable que se pasará a ser validada y que guardará todos los valores recibidos.
   También se pueden declarar los valores iniciales o por defecto en esta variable cambiando el valor null por el deseado
   */
-  myForm={
+  @Input() myForm={
     nombre: null,
     apellido: null,
     correo: null,
@@ -50,7 +50,7 @@ export class FormsComponent implements OnInit {
     options.value => valor por defecto del campo
     options.text => etiqueta del campo o texto a mostrar en la opción
   */
-  myFormFields=[
+  @Input() myFormFields=[
     {id: 1, tag:'input', name:'nombre', type:'text', placeholder:'Nombre', required:true, disabled:false, options:[]},
     {id: 2, tag:'input', name:'apellido', type:'text', placeholder:'Apellidos', required:true, disabled:false, options:[]},
     {id: 4, tag:'input', name:'telefono', type:'text', placeholder:'Teléfono', required:true, disabled:false, options:[]},
@@ -79,6 +79,7 @@ export class FormsComponent implements OnInit {
   ];
   @ViewChild('Formulario',{static:false}) Formulario;
   error:Array<string>=[];
+  @Output() onSubmit = new EventEmitter<any>();
 
   // fin de propiedades del formulario
 
@@ -98,6 +99,7 @@ export class FormsComponent implements OnInit {
       /* AQUÍ DEBE IR EL LLAMADO AL SERVICIO QUE GUARDA LA INFORMACIÓN DEL FORMULARIO
       ...
        */
+      this.onSubmit.emit(this.myForm)
       //RESETEAR EL FORMULARIO PARA NUEVOS DATOS
       this.Formulario.nativeElement.reset();
     }

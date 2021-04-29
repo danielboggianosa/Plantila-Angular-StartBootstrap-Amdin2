@@ -1,12 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router, ParamMap, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
-import { Observable } from 'rxjs';
 import { CuentasService } from 'src/app/services/cuentas.service';
 import { SubSink } from 'subsink';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cuentas',
@@ -45,6 +42,7 @@ export class CuentasComponent implements OnInit {
   $empresa:{id:String;nombre:String;notas:String;image_url:String}
 
   constructor(private mainService:CuentasService, private ngbModal:NgbModal, private router:Router, private activateRoute:ActivatedRoute) { }
+  hide:boolean = false
 
   ngOnInit(): void {
     this.$empresa = window.history.state

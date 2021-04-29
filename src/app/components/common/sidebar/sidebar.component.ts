@@ -16,14 +16,14 @@ export class SidebarComponent implements OnInit {
     ]},
     {id: 2, title: 'Elementos', permission:'', menu:[
       {id:1, title: 'Empresas', icon:'fas fa-fw fa-building', link: 'empresas', permission:'', subtitle: 'Custom Components', submenu:[]},
-      {id:3, title: 'Utilitis', icon:'fas fa-fw fa-wrench', link: '', permission:'', subtitle: 'Custom Utilities', submenu:[
+      /* {id:3, title: 'Utilitis', icon:'fas fa-fw fa-wrench', link: '', permission:'', subtitle: 'Custom Utilities', submenu:[
         {id:5, title:'Colors', link:'colors', permission:'' },
         {id:6, title:'Borders', link:'borders', permission:'' },
         {id:7, title:'Animations', link:'animations', permission:'' },
         {id:8, title:'Other', link:'other', permission:'' },
-      ]},
+      ]}, */
     ]},
-    {id: 3, title: 'Addons', permission:'', menu:[
+    /* {id: 3, title: 'Addons', permission:'', menu:[
       {id:9, title: 'Pages', icon:'fas fa-fw fa-folder', link: '', permission:'', subtitle: 'Custom Components', submenu:[
         {id:10, title:'Login', link:'/login', permission:'' },
         {id:11, title:'Register', link:'/register', permission:'' },
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
       {id:15, title: 'Charts', icon:'fas fa-fw fa-chart-area', link: 'charts', permission:'', subtitle: '', submenu:[]},
       {id:16, title: 'Tables', icon:'fas fa-fw fa-table', link: 'table', permission:'', subtitle: '', submenu:[]},
       {id:17, title: 'Forms', icon:'fas fa-fw fa-table', link: 'forms', permission:'', subtitle: '', submenu:[]},
-    ]},
+    ]}, */
   ]
   activeSubmenu: string;
   group: any;
