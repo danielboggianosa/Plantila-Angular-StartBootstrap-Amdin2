@@ -27,11 +27,11 @@ export class EmpresaComponent implements OnInit {
   cardType: string = 'empresa';
   tableColumns = [
     {id:'1', key:'id', title:'ID', visible:true},
-    {id:'2', key:'image_url',  title:'IMAGEN', visible:true},
+    {id:'2', key:'imagen',  title:'IMAGEN', visible:false},
     {id:'3', key:'nombre', title:'NOMBRE',   visible:true},
     {id:'4', key:'notas', title:'NOTAS',   visible:true},
     {id:'5', key:'createdAt', title:'ACTUALIZADO',   visible:false},
-    {id:'0', key:'options',   title:'OPCIONES',  visible:true, options:{delete:true,edit:true,select:false,unselect:false}},
+    {id:'0', key:'options',   title:'OPCIONES',  visible:false, options:{delete:true,edit:true,select:false,unselect:false}},
   ]
   empresa;
   page: number = 1;
@@ -69,6 +69,8 @@ export class EmpresaComponent implements OnInit {
     }
     this.subs.sink = this.empresaService.listar(body).subscribe(
       res=>{
+        if(!res['data'])
+          this.hide=true
         this.csvData = res['data'];
         this.totalRows = (res['pagina']['total_filas']);
         this.dataSource = res['data'];
@@ -124,8 +126,10 @@ export class EmpresaComponent implements OnInit {
   create(e){
     console.log(e)
     this.subs.sink = this.empresaService.crear(e).subscribe(res => {
-      if(res['success'])
+      if(res['success']){
         this.hide=!this.hide
+        this.loadData(e)
+      }
       else
         alert(res['message'])
     })

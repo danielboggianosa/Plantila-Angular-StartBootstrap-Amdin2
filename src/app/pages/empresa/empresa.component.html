@@ -37,6 +37,8 @@
     [myForm]="myForm"
     [myFormFields]="myFormFields"
     [cardTitle]="formsTitle"
+    [buttonText]="'Crear Empresa'"
     (onSubmit)="create($event)"
+    (onCancel)="hide=!hide"
     ></app-forms>
 </ng-container>
