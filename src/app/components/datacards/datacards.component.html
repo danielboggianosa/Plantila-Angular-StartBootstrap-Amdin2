@@ -9,14 +9,14 @@
             <!-- SEARCH FORM -->
             <form class=" d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search" (submit)="searchData()" *ngIf="SearchForm">
                 <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Filtrar..." aria-label="Search" aria-describedby="basic-addon2" name="filterValue" [(ngModel)]="filterValue">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar por..." aria-label="Search" aria-describedby="basic-addon2" name="filterValue" [(ngModel)]="filterValue">
                         <div class="input-group-append">
                             <button class="btn btn-primary dropdown-toggle text-uppercase" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{searchField}}
                               </button>
                               <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
                                   <span *ngFor="let col of tableColumns">
-                                      <a class="dropdown-item" [routerLink]="" (click)="searchField=col.key"><span>{{col.title}}</span></a>
+                                      <a class="dropdown-item" [routerLink]="" (click)="searchField=col.key" *ngIf="col.visible"><span>{{col.title}}</span></a>
                                   </span>
                               </div>
                         </div>
@@ -157,7 +157,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.monto}}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="fas fa-money-check-alt fa-2x text-gray-300"></i>
                             </div>
                             <div class="col-12">
                                 <div class="text-xs text-muted">{{data.descripcion}}</div>

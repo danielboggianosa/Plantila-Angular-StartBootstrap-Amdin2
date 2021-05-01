@@ -53,7 +53,7 @@ export class DatacardsComponent implements OnInit {
   displayedColumns: string[];
   // searchField:string = 'ID'
   symbols={
-    PEN:'fa-ruble-sign',
+    PEN:'fa-parking',
     USD:'fa-dollar-sign',
     EUR:'fa-euro-sign'
   }

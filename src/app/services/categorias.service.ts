@@ -1,24 +1,24 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment as env } from '../../environments/environment';
 import { AuthService } from './auth.service';
+import { environment as env } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
-export class CuentasService {
+export class CategoriasService {
   headers = {};
   url
 
   constructor(private http:HttpClient, private auth:AuthService) {
     this.headers = {headers: new HttpHeaders().set('token', sessionStorage.getItem('token'))};
-    this.url = env.apiUrl + 'cuenta/'
+    this.url = env.apiUrl + 'categoria/'
   }
 
-  listar(body){
-    const {page, size, order, value, field, empresaId, search } = body
+  listar(query){
+    const {page, size, order, value, field, empresaId, search } = query
     if(this.auth.isTokenValid()){
-      return this.http.get(this.url + `?pagina=${page}&filas=${size}&busqueda_campo=${search}&busqueda_valor=${value}&orden_campo=${field}&orden_valor=${order}&empresa_id=${empresaId}`, this.headers)
+      return this.http.get(this.url + `${empresaId}?pagina=${page}&filas=${size}&orden_campo=${field}&orden_valor=${order}`, this.headers)
     }
   }
 
@@ -27,7 +27,6 @@ export class CuentasService {
   }
   
   crear(body){
-    console.log("service", body)
     return this.http.post(this.url, body, this.headers)
   }
 
@@ -38,5 +37,4 @@ export class CuentasService {
   borrar(id){
     return this.http.delete(this.url+id, this.headers)
   }
-
 }

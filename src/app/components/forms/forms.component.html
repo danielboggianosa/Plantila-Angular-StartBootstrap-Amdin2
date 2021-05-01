@@ -8,8 +8,8 @@
     <div class="card-body">
         <p>{{cardDescription}}</p>
         <form class="user row" #Formulario (submit)="submitAction(); $event.preventDefault()">
-            <div *ngFor="let campo of myFormFields" class="{{(campo.class) ? campo.class : 'col-sm-12 col-md-6 col-lg-4'}}">
-                <label for="{{campo.name}}" class="form-control-label  mx-2">{{campo.label}}</label>
+            <div *ngFor="let campo of myFormFields" class="{{(campo.class) ? campo.class : 'col-sm-12 col-md-6 col-lg-4'}} mb-2">
+                <label for="{{campo.name}}" class="form-control-label mx-2 font-weight-bold">{{campo.label}}</label>
                 <span *ngIf="campo.tag=='input'">
                     <span *ngIf="['text','email','password','date','time','number'].indexOf(campo.type) > -1">
                         <input type="{{campo.type}}" class="form-control form-control-user" name="{{campo.name}}" id="{{campo.name}}" placeholder="{{campo.placeholder}}" required="{{campo.required}}" [(ngModel)]="myForm[campo.name]" (change)="inputChange(campo.name)"> 

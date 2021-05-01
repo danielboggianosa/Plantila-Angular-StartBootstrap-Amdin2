@@ -2,3 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.currency-pen {
+    display: block;
+    height: 25px;
+    width: 25px;
+    background: url(./assets/img/currency-pen.svg);
+    background-size: 25px 25px;
+}

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://cuentas.aprendofeliz.test/wp-json/cuentas/v1/'
+  apiUrl: '/cuentas/v1/'
 };
 
 /*

@@ -129,7 +129,7 @@ export class FormsComponent implements OnInit {
 
   // ESTA FUNCION SE ENCARGA DE VALIDAR QUE TODOS LOS VALORES RECIBIDO ESTÉN CONFORME LO DECLARADO
   validateFormFields(myForm, myFormFields){
-    console.log(myForm.correo)
+    // console.log(myForm.correo)
 
     let valid:boolean = true
     this.error=[];

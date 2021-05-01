@@ -16,9 +16,9 @@ export class RegistrosService {
   }
 
   listar(body){
-    const {page, size, order, value, field, cuentaId, search } = body
+    const {page, size, order, value, field, cuenta_id, search } = body
     if(this.auth.isTokenValid()){
-      return this.http.get(this.url + `${cuentaId}?pagina=${page}&filas=${size}&busqueda_campo=${search}&busqueda_valor=${value}&orden_campo=${field}&orden_valor=${order}&cuenta_id=${cuentaId}`, this.headers)
+      return this.http.get(this.url + `${cuenta_id}?pagina=${page}&filas=${size}&busqueda_campo=${search}&busqueda_valor=${value}&orden_campo=${field}&orden_valor=${order}`, this.headers)
     }
   }
 
@@ -32,5 +32,9 @@ export class RegistrosService {
 
   borrar(id){
     return this.http.delete(this.url+id, this.headers)
+  }
+
+  crear(body){
+    return this.http.post(this.url, body, this.headers)
   }
 }
