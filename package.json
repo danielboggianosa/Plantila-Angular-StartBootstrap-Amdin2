@@ -31,7 +31,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@ng-bootstrap/ng-bootstrap": "^6.0.0",
     "angular2-csv": "^0.2.9",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "moment": "^2.24.0",
     "rxjs": "~6.5.4",
     "subsink": "^1.0.1",
